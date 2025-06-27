@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:frontend/screens/auth/login.dart';
+import 'package:frontend/screens/nav/dashboard/dashboard.dart';
+import 'package:frontend/screens/nav/mainnav.dart';
 import 'package:frontend/screens/singleScreen/singleProject.dart';
 
 void main() {
@@ -24,7 +27,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: const SingleProject(),
+      child: const MainNavPage(),
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:frontend/components/Abutton.dart';
 import 'package:frontend/components/Atext.dart';
 import 'package:frontend/components/Atextfeild.dart';
+import 'package:frontend/screens/nav/dashboard/dashboard.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -37,7 +38,9 @@ class Login extends StatelessWidget {
             SizedBox(height: 30.h),
             AppButton(
             height: 60,
-            text: "Login", onPressed: (){},
+            text: "Login", onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> DashBoard()));
+            },
             gradient: const LinearGradient(
                 colors: [
                   Color(0xFFFF5F6D),
