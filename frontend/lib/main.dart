@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:frontend/screens/auth/login.dart';
 import 'package:frontend/screens/nav/dashboard/dashboard.dart';
 import 'package:frontend/screens/nav/mainnav.dart';
+import 'package:frontend/screens/nav/tickets/admin/adminallticket.dart';
 import 'package:frontend/screens/singleScreen/singleProject.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -27,7 +33,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: const MainNavPage(),
+      child: const Login(),
     );
   }
 }

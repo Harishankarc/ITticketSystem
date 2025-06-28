@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:frontend/components/Acard.dart';
 import 'package:frontend/components/Atext.dart';
+import 'package:frontend/screens/adminSingleScreen/adminsingleProject.dart';
+import 'package:frontend/screens/auth/login.dart';
 import 'package:frontend/screens/nav/dashboard/projectBox.dart';
 import 'package:frontend/screens/singleScreen/singleProject.dart';
+import 'package:frontend/utils/constants.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({super.key});
@@ -31,11 +34,7 @@ class _DashBoardState extends State<DashBoard> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       AText(text: "Dashboard", fontWeight: FontWeight.w700, size: 25),
-                      GestureDetector(onTap: (){
-                        setState(() {
-                          isDrawerOpen = !isDrawerOpen;
-                        });
-                      },child: Icon(Icons.menu, size: 25.w)),
+
                     ],
                   ),
                   AText(
@@ -186,7 +185,7 @@ class _DashBoardState extends State<DashBoard> {
                     itemCount: 3,
                     itemBuilder: (context, index) => GestureDetector(
                       onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => SingleProject(projectId: index+1,)));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => isAdmin ? AdminSingleProject(projectId: index+1,) : SingleProject(projectId: index+1)));
                       },
                       child: ProjectBox(
                         statusLabel: "Active",
@@ -201,68 +200,7 @@ class _DashBoardState extends State<DashBoard> {
               ),
             ),
           ),
-          if (isDrawerOpen)
-            Positioned.fill(
-              child: GestureDetector(
-                onTap: () {
-                  setState(() {
-                    isDrawerOpen = false;
-                  });
-                },
-                child: Container(color: Colors.black.withOpacity(0.4)),
-              ),
-            ),
 
-          AnimatedPositioned(
-            duration: const Duration(milliseconds: 300),
-            top: 0,
-            bottom: 0,
-            right: isDrawerOpen ? 0 : -MediaQuery.of(context).size.width * 0.75,
-            child: Container(
-              width: MediaQuery.of(context).size.width * 0.5,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black26,
-                    blurRadius: 10,
-                    offset: Offset(-4, 0),
-                  ),
-                ],
-              ),
-              child: SafeArea(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.w,vertical: 40.h),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Divider(thickness: 1, color: Colors.grey, height: 1),
-                        SizedBox(height: 5.h,),
-                        AText(
-                          text: "Profile",
-                          fontWeight: FontWeight.w700,
-                          size: 15,
-                          color: Colors.grey[900],
-                        ),
-                        SizedBox(height: 5.h,),
-                        Divider(thickness: 1, color: Colors.grey, height: 1),
-                        SizedBox(height: 5.h,),
-                        AText(
-                          text: "LogOut",
-                          fontWeight: FontWeight.w700,
-                          size: 15,
-                          color: Colors.red[900],
-                        ),
-                        SizedBox(height: 5.h,),
-                        Divider(thickness: 1, color: Colors.grey, height: 1),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
         ],
       ),
     );

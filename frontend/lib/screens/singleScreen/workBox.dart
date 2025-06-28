@@ -128,20 +128,8 @@ class WorkBox extends StatelessWidget {
             ],
           ),
 
-          SizedBox(height: 10.h),
 
-          Row(
-            children: [
-              Icon(Icons.person_outline, size: 14.sp, color: Colors.grey[600]),
-              SizedBox(width: 5.w),
-              AText(
-                text: "Assigned to $assignee",
-                size: 10,
-                fontWeight: FontWeight.w400,
-                color: Colors.grey[700],
-              ),
-            ],
-          ),
+
         ],
       ),
     );

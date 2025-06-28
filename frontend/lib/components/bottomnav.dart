@@ -11,12 +11,14 @@ class Bottomnav extends StatelessWidget {
     required this.selectedIndex,
     required this.onTabSelected,
   });
-
+  //
   @override
   Widget build(BuildContext context) {
     final items = [
       {'label': 'DashBoard', 'icon': Icons.dashboard, 'badge': 2},
       {'label': 'All Tickets', 'icon': Icons.confirmation_num , 'badge': 1},
+      {'label': 'Profile', 'icon': Icons.person , 'badge': 0},
+
     ];
 
     return Container(
@@ -58,15 +60,15 @@ class Bottomnav extends StatelessWidget {
                             shape: BoxShape.circle,
                           ),
                           constraints:  BoxConstraints(
-                            minWidth: 20.w,
-                            minHeight: 20.h,
+                            minWidth: 15.w,
+                            minHeight: 15.h,
                           ),
                           child: Center(
                             child: Text(
                               '${item['badge']}',
                               style:  TextStyle(
                                 color: Colors.white,
-                                fontSize: 12.sp,
+                                fontSize: 10.sp,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),

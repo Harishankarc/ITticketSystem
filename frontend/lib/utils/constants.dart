@@ -13,3 +13,4 @@ final Color appToggleColorLight = Color.fromARGB(120, 0, 165, 44);
 final Color appLinkColor = Color(0xFF001FBC);
 final Color appLangBg = Color.fromARGB(29, 122, 13, 75);
 final Color menuUploadBoxColor = Color.fromARGB(132, 235, 219, 153);
+bool isAdmin = false;
